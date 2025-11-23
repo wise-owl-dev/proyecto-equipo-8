@@ -1,47 +1,90 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+@extends('layouts.auth')
 
-    <form method="POST" action="{{ route('login') }}">
+@section('titulo', 'Iniciar Sesión')
+
+@section('encabezado', 'Iniciar Sesión')
+
+@section('descripcion', 'Accede a tu cuenta para participar en eventos')
+
+@section('pestana-login-activa', 'activa')
+
+@section('formulario')
+    <!-- Estado de la Sesión -->
+    @if (session('status'))
+        <div class="alerta alerta-exito">
+            {{ session('status') }}
+        </div>
+    @endif
+
+    <!-- Formulario de Inicio de Sesión -->
+    <form method="POST" action="{{ route('login') }}" class="formulario-autenticacion">
         @csrf
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        <!-- Campo de Correo Electrónico -->
+        <div class="grupo-formulario">
+            <label for="email">Correo electrónico</label>
+            <div class="contenedor-input">
+                <svg class="icono-input" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M3 4h14a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z" stroke="#666" stroke-width="1.5"/>
+                    <path d="M2 5l8 5 8-5" stroke="#666" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    placeholder="tucarreo@itoaxaca.edu.mx"
+                    value="{{ old('email') }}"
+                    required 
+                    autofocus
+                    autocomplete="username"
+                >
+            </div>
+            @error('email')
+                <span class="mensaje-error">{{ $message }}</span>
+            @enderror
         </div>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+        <!-- Campo de Contraseña -->
+        <div class="grupo-formulario">
+            <label for="password">Contraseña</label>
+            <div class="contenedor-input">
+                <svg class="icono-input" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <rect x="3" y="8" width="14" height="10" rx="2" stroke="#666" stroke-width="1.5"/>
+                    <path d="M6 8V6a4 4 0 0 1 8 0v2" stroke="#666" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <input 
+                    type="password" 
+                    id="password" 
+                    name="password" 
+                    placeholder="••••••••••••"
+                    required
+                    autocomplete="current-password"
+                >
+            </div>
+            @error('password')
+                <span class="mensaje-error">{{ $message }}</span>
+            @enderror
         </div>
 
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+        <!-- Recordarme y Olvidaste tu contraseña -->
+        <div class="opciones-formulario">
+            <label class="etiqueta-checkbox">
+                <input type="checkbox" name="remember" id="remember_me">
+                <span>Recordarme</span>
             </label>
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
             @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
+                <a href="{{ route('password.request') }}" class="contrasena-olvidada">¿Olvidaste tu contraseña?</a>
             @endif
-
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
         </div>
+
+        <!-- Botón de Enviar -->
+        <button type="submit" class="boton-enviar">
+            Iniciar sesión
+        </button>
+
+        <!-- Términos -->
+        <p class="terminos">
+            Al registrarte, aceptas nuestros <a href="#">términos de servicio</a> y <a href="#">política de privacidad</a>
+        </p>
     </form>
-</x-guest-layout>
+@endsection
