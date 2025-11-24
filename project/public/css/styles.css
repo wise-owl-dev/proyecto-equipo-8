@@ -1,0 +1,392 @@
+/* Variables de colores y fuentes */
+:root {
+    --bg-color: #F3F4F6;
+    --card-bg: #FFFFFF;
+    --primary-color: #4F46E5; /* Azul/Morado principal */
+    --primary-hover: #4338ca;
+    --accent-pink: #F472B6;
+    --text-dark: #111827;
+    --text-gray: #6B7280;
+    --border-color: #E5E7EB;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --font-main: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--card-bg);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-icon {
+    background-color: var(--primary-color);
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.brand-name {
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    color: var(--text-gray);
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--text-gray);
+}
+
+.user-profile, .admin-link, .logout-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+/* Layout Principal */
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.welcome-header {
+    margin-bottom: 2rem;
+}
+
+.welcome-header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.welcome-header p {
+    color: var(--text-gray);
+}
+
+/* Grid System */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* 2 partes izquierda, 1 parte derecha */
+    gap: 2rem;
+}
+
+/* Cards Generales */
+.card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.card-header h2 {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Buscador */
+.search-box {
+    position: relative;
+}
+
+.search-box input {
+    padding: 0.5rem 1rem 0.5rem 2.2rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: #F9FAFB;
+    font-size: 0.9rem;
+}
+
+.search-box i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-gray);
+    font-size: 0.8rem;
+}
+
+/* Lista de Eventos */
+.event-item {
+    background-color: #F9FAFB;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.event-info h3 {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+}
+
+.event-info p {
+    font-size: 0.85rem;
+    color: var(--text-gray);
+}
+
+.event-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Botones y Badges */
+.badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: white;
+}
+
+.badge-blue {
+    background-color: var(--primary-color);
+}
+
+.badge-pink {
+    background-color: #F472B6; /* Rosado fucsia */
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+/* Equipos */
+.team-item {
+    background-color: #F9FAFB;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.team-name-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.2rem;
+}
+
+.team-name-row h3 {
+    font-size: 0.95rem;
+}
+
+.role-badge {
+    background-color: #E5E7EB;
+    padding: 2px 6px;
+    font-size: 0.7rem;
+    border-radius: 4px;
+    color: var(--text-dark);
+}
+
+.event-ref {
+    font-size: 0.75rem;
+    color: var(--text-gray);
+    margin-bottom: 0.2rem;
+}
+
+.members-count {
+    font-size: 0.75rem;
+    color: var(--text-gray);
+}
+
+.team-progress-area {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-width: 200px;
+    justify-content: flex-end;
+}
+
+.progress-bar {
+    width: 100px;
+    height: 8px;
+    background-color: #E5E7EB;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(to right, var(--primary-color), #818CF8);
+}
+
+.progress-fill.multi-color {
+    background: linear-gradient(to right, var(--primary-color), var(--accent-pink));
+}
+
+.btn-outline {
+    background-color: white;
+    border: 1px solid var(--border-color);
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Sidebar Derecha */
+.right-column .card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.action-btn {
+    width: 100%;
+    padding: 0.8rem;
+    text-align: left;
+    background-color: #F3F4F6;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--text-dark);
+}
+
+.action-btn:hover {
+    background-color: #E5E7EB;
+}
+
+/* Estadísticas */
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+}
+
+.stat-row strong {
+    font-weight: 700;
+}
+
+/* Notificaciones */
+.notif-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #F3F4F6;
+}
+
+.notif-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.notif-text strong {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+}
+
+.notif-text p {
+    font-size: 0.8rem;
+    color: var(--text-gray);
+}
+
+.notif-count {
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+/* Responsive - Celulares */
+@media (max-width: 768px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .nav-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .event-item, .team-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .event-actions, .team-progress-area {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
